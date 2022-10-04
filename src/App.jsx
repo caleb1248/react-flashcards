@@ -1,13 +1,16 @@
-import { useState } from 'react'
-import 'react-router-dom'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Editor from './components/editor/editor';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>Spanish flash cards in react</h1>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Editor></Editor>}/>
+      </Routes>
+      </Router>
     </>
   )
 }
