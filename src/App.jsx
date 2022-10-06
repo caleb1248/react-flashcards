@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Editor from './components/editor/editor';
+import Container from './components/editor/container';
+import Home from './components/home'
 import './App.css';
 
 function App() {
   return (
     <>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Editor></Editor>}/>
-      </Routes>
-      </Router>
+    <Router><Routes>
+      <Route path='/editor/:theID' element={<Container/>}/>
+			<Route exact path='/' element={<Home />} />
+    </Routes></Router>
     </>
   )
 }
