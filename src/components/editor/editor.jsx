@@ -1,7 +1,7 @@
 import { IconButton, TextField, Box } from "@mui/material";
 import { Add, Save } from "@mui/icons-material";
 import Card from "./card";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from 'react-router-dom';
 
 import getDeck from '../../getDecks.jsx';
@@ -13,7 +13,7 @@ export default function Editor() {
 	const [keys, setKeys] = useState(getDeck(theID).keys);
 	const [cards, setCards] = useState((x => {
 		delete x.keys;
-		return x
+		return x;
 	})(getDeck(theID)));
 
 	function generateKey() {
@@ -24,7 +24,7 @@ export default function Editor() {
 		<>
 			<Box
 				sx={{
-					width: "calc(100vw - 60px)",
+					width: "calc(100vw - 100px)",
 					margin: "1rem",
 					display: "flex",
 					flexFlow: "row wrap",

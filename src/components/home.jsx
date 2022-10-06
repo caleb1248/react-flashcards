@@ -1,6 +1,6 @@
 import { IconButton, TextField, Box } from "@mui/material";
 import { Navigate } from 'react-router-dom';
-import {useState} from 'react'
+import { useState } from 'react';
 import { Add } from "@mui/icons-material";
 
 
@@ -15,12 +15,15 @@ export default function Home() {
 		<>
 			<Box
 				sx={{
-					display: "grid",
-					width: "calc(100vw - 60px)",
-					gap: "1rem",
-					margin: "1rem"
+					width: "calc(100vw - 100px)",
+					margin: 0,
+					padding: "1rem",
+					display: "flex",
+					flexFlow: "row wrap",
+					gap: "1rem"
 				}}
 			>
+				<h1>Your Decks</h1>
 
 			</Box>
 			<IconButton

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Container from './components/editor/container';
 import Home from './components/home'
@@ -9,7 +8,7 @@ function App() {
     <>
     <Router><Routes>
       <Route path='/editor/:theID' element={<Container/>}/>
-			<Route exact path='/' element={<Home />} />
+			<Route exact path='/' element={<Home/>} />
     </Routes></Router>
     </>
   )
