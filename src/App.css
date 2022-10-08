@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-* {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap');
+.roboto {
   font-family: "Roboto";
+}
+
+.thin {
+	font-weight: 100
 }

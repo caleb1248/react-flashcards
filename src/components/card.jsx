@@ -1,5 +1,4 @@
-import { IconButton, TextField, Box } from "@mui/material";
-import { Delete, Autorenew } from "@mui/icons-material";
+import {  Box } from "@mui/material";
 import { useState } from "react";
 
 export default function Card({ front, back }) {
@@ -21,7 +20,6 @@ export default function Card({ front, back }) {
           height: 300,
           transform: `rotateY(${flipped ? 180 : 0}deg)`,
           transition: "transform 1s",
-          backfaceVisibility: "hidden",
           transformStyle: "preserve-3d",
         }}
       >

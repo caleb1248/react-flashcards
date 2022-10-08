@@ -1,9 +1,8 @@
 import { IconButton, TextField, Box } from "@mui/material";
 import { Add, Save } from "@mui/icons-material";
 import Card from "./card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-
 import getDeck from '../../getDecks.jsx';
 
 export default function Editor() {
@@ -15,6 +14,8 @@ export default function Editor() {
 		delete x.keys;
 		return x;
 	})(getDeck(theID)));
+	
+	useEffect(() => document.title = "Editor | " + cards.title, [])
 
 	function generateKey() {
 		return Math.round(Math.random() * 2000).toString();
