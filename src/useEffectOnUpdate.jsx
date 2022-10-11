@@ -4,7 +4,7 @@ export default function useEffectOnUpdate(callback, whenWhatUpdates) {
 	const didMount = useRef(false);
 	useEffect(() => {
 		if(didMount.current) {
-			return callback();
+			return callback() || (() => {});
 		} else {
 			didMount.current = true;
 		}

@@ -1,8 +1,9 @@
 import { IconButton, TextField, Box } from "@mui/material";
-import { Navigate } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { Add } from "@mui/icons-material";
 import CreateDialog from './create';
+import Card from "./card";
 
 export default function Home() {
 	const [x, setX] = useState(null);
@@ -28,7 +29,11 @@ export default function Home() {
 				className="roboto"
 			>
 				{
-					JSON.parse(localStorage.getItem("keys")).map(key => key)
+					JSON.parse(localStorage.getItem("keys")).map(key => (
+						<NavLink to={`/view/${key}`}>
+							<Card front={localStorage.getItem(key)} back=""/>
+						</NavLink>
+					))
 				}
 			</Box>
 			<IconButton

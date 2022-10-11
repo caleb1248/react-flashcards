@@ -4,6 +4,7 @@ import Card from "./card";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import getDeck from '../../getDecks.jsx';
+import NavBar from "./navbar";
 
 export default function Editor() {
 	const { theID } = useParams();
@@ -15,7 +16,22 @@ export default function Editor() {
 		return x;
 	})(getDeck(theID)));
 	
-	useEffect(() => document.title = "Editor | " + cards.title, [])
+	useEffect(() => {document.title = "Editor | " + cards.title}, [])
+
+	const addCard = () => {
+		const key = generateKey();
+		setCards(c => {
+			c[key] = {
+				front: "",
+				back: "",
+			};
+			return c;
+		});
+
+		setKeys((currentKeys) => [...currentKeys, key]);
+	}
+
+	const saveDeck = () => localStorage.setItem(theID, JSON.stringify({...cards, "keys": keys}))
 
 	function generateKey() {
 		return Math.round(Math.random() * 2000).toString();
@@ -23,6 +39,7 @@ export default function Editor() {
 
 	return (
 		<>
+			<NavBar onCreateClick={addCard} onSaveClick={saveDeck}/>
 			<Box
 				sx={{
 					width: "calc(100vw - 100px)",
@@ -80,18 +97,7 @@ export default function Editor() {
 						backgroundColor: "rgb(62, 211, 62)",
 					},
 				}}
-				onClick={() => {
-					const key = generateKey();
-					setCards(c => {
-						c[key] = {
-							front: "",
-							back: "",
-						};
-						return c;
-					});
-
-					setKeys((currentKeys) => [...currentKeys, key]);
-				}}
+				onClick={addCard}
 			>
 				<Add />
 			</IconButton>
@@ -106,7 +112,7 @@ export default function Editor() {
 						backgroundColor: "rgb(62, 211, 62)",
 					},
 				}}
-				onClick={() => localStorage.setItem(theID, JSON.stringify({...cards, "keys": keys}))}
+				onClick={saveDeck}
 			>
 				<Save />
 			</IconButton>
