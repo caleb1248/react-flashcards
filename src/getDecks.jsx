@@ -1,3 +1,7 @@
 export default function getDeck(id) {
-	return JSON.parse(localStorage.getItem(id));
+	try {
+		return JSON.parse(localStorage[id])
+	} catch {
+		return null;
+	}
 }

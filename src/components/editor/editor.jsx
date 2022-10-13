@@ -2,15 +2,19 @@ import { IconButton, TextField, Box } from "@mui/material";
 import { Add, Save } from "@mui/icons-material";
 import Card from "./card";
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import getDeck from '../../getDecks.jsx';
 import NavBar from "./navbar";
-
+import ExportDialog from "./export.jsx"
+import DeleteDialog from './delete'
 export default function Editor() {
 	const { theID } = useParams();
+
+	let navigate = useNavigate()
 	
 	const [ignoreState, rerender] = useState(false);
 	const [keys, setKeys] = useState(getDeck(theID).keys);
+	const [dialog, setDialog] = useState(<></>);
 	const [cards, setCards] = useState((x => {
 		delete x.keys;
 		return x;
@@ -31,7 +35,7 @@ export default function Editor() {
 		setKeys((currentKeys) => [...currentKeys, key]);
 	}
 
-	const saveDeck = () => localStorage.setItem(theID, JSON.stringify({...cards, "keys": keys}))
+	const saveDeck = () => localStorage.setItem(theID, JSON.stringify({...cards, "keys": keys}));
 
 	function generateKey() {
 		return Math.round(Math.random() * 2000).toString();
@@ -39,11 +43,36 @@ export default function Editor() {
 
 	return (
 		<>
-			<NavBar onCreateClick={addCard} onSaveClick={saveDeck}/>
+			<NavBar
+				onCreateClick={addCard}
+				onSaveClick={saveDeck}
+				onExport={() => {
+					saveDeck();
+					setDialog(
+						<ExportDialog value={`${location.hostname}/import/${btoa(localStorage.getItem(theID))}`} onClose={() => setDialog(<></>)}/>
+					)
+				}}
+				onDelete = {() => {
+					setDialog(<DeleteDialog
+						onCancel={() => setDialog(<></>)}
+						onConfirm={() => {
+							localStorage.removeItem(theID);
+							localStorage.setItem("keys", (currentKeys => {
+								currentKeys.splice(currentKeys.indexOf(theID), 1);
+								console.log(currentKeys);
+								return JSON.stringify(currentKeys);
+							})(JSON.parse(localStorage.getItem("keys"))))
+							navigate("/");
+						}}
+					/>)
+				}}
+				
+			/>
 			<Box
 				sx={{
 					width: "calc(100vw - 100px)",
-					margin: "1rem",
+					padding: "1rem",
+					marginTop: "64px",
 					display: "flex",
 					flexFlow: "row wrap",
 					gap: "1rem"
@@ -101,21 +130,7 @@ export default function Editor() {
 			>
 				<Add />
 			</IconButton>
-			<IconButton
-				sx={{
-					position: "fixed",
-					right: 60,
-					bottom: 10,
-					backgroundColor: "rgb(62, 211, 62)",
-
-					"&:hover": {
-						backgroundColor: "rgb(62, 211, 62)",
-					},
-				}}
-				onClick={saveDeck}
-			>
-				<Save />
-			</IconButton>
+			{dialog}
 		</>
 	);
 }

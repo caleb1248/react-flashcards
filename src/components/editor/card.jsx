@@ -79,6 +79,7 @@ export default function Card({ front, back, onDelete, onSetFront, onSetBack }) {
 						>
 							<TextField
 								ref={frontSide}
+								autoComplete="off"
 								value={fflipped ? backContent : frontContent}
 								onChange={e => {
 									if (flipped) {
