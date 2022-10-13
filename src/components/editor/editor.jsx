@@ -1,12 +1,12 @@
 import { IconButton, TextField, Box } from "@mui/material";
-import { Add, Save } from "@mui/icons-material";
+import { Add, Save } from "../icons";
 import Card from "./card";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import getDeck from '../../getDecks.jsx';
 import NavBar from "./navbar";
-import ExportDialog from "./export.jsx"
-import DeleteDialog from './delete'
+import ExportDialog from "./export"
+import DeleteDialog from './delete';
 export default function Editor() {
 	const { theID } = useParams();
 

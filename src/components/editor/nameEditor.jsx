@@ -1,10 +1,10 @@
 import { IconButton, TextField } from "@mui/material";
-import { Edit } from "@mui/icons-material";
+import { Edit } from "../icons.jsx";
 import { useState, useRef } from 'react';
 import { useParams } from "react-router-dom";
 import getDeck from '../../getDecks.jsx';
 
-export default function NavBar() {
+export default function NameEditor() {
 	const { theID } = useParams();
 	const [text, setText] = useState(getDeck(theID).title);
 	

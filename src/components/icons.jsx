@@ -1,0 +1,12 @@
+export { default as Add } from '@mui/icons-material/Add';
+export { default as Close } from '@mui/icons-material/Close';
+export { default as Edit } from '@mui/icons-material/Edit';
+export { default as Delete } from '@mui/icons-material/Delete';
+export { default as Autorenew } from '@mui/icons-material/Autorenew';
+export { default as Save } from '@mui/icons-material/Save';
+export { default as OpenInNew } from '@mui/icons-material/OpenInNew';
+export { default as ArrowBack } from '@mui/icons-material/ArrowBack';
+export { default as ArrowForward } from '@mui/icons-material/ArrowForward';
+export { default as IosShareSharp } from '@mui/icons-material/IosShareSharp';
+export { default as ChevronRight } from '@mui/icons-material/ChevronRight';
+export { default as ChevronLeft } from '@mui/icons-material/ChevronLeft';

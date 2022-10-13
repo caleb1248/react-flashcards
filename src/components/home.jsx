@@ -1,7 +1,7 @@
 import { IconButton, TextField, Box } from "@mui/material";
 import { Navigate, NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { Add } from "@mui/icons-material";
+import { Add } from "./icons";
 import CreateDialog from './create';
 import HomeCard from "./homeCard";
 

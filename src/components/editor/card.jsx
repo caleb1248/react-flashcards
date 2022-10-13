@@ -1,5 +1,5 @@
 import { IconButton, TextField, Box, Card as MuiCard } from "@mui/material";
-import { Delete, Autorenew } from "@mui/icons-material";
+import { Delete, Autorenew } from "../icons";
 import { useRef, useState } from "react";
 import useEffect from '../../useEffectOnUpdate';
 export default function Card({ front, back, onDelete, onSetFront, onSetBack }) {

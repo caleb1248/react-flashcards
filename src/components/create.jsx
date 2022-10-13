@@ -8,7 +8,7 @@ import {
 	IconButton
 } from "@mui/material";
 
-import { Close } from "@mui/icons-material"
+import { Close } from './icons';
 import { useRef, useState } from 'react';
 
 export default function CreateDialog({onSuccess, onCancel}) {

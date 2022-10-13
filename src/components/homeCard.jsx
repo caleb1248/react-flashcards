@@ -1,5 +1,5 @@
 import { Box, IconButton } from "@mui/material";
-import { OpenInNew , Edit } from "@mui/icons-material";
+import { OpenInNew , Edit } from "./icons";
 import { NavLink } from "react-router-dom";
 
 export default function HomeCard({ cardKey }) {

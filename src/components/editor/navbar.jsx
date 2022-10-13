@@ -1,5 +1,5 @@
 import { AppBar, IconButton, Box, Toolbar, TextField } from "@mui/material";
-import { Save, ArrowBack, Add, IosShareSharp, Delete, OpenInNew } from "@mui/icons-material";
+import { Save, ArrowBack, Add, IosShareSharp, Delete, OpenInNew } from "../icons";
 import { NavLink, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import NameEditor from "./nameEditor";

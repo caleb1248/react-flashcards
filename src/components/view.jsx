@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { Box, IconButton } from "@mui/material";
-import { ChevronRight, ChevronLeft, ArrowForward, Edit } from "@mui/icons-material";
+import { ChevronRight, ChevronLeft, ArrowForward, Edit } from "./icons";
 import Card from './card';
 import getDeck from '../getDecks'
 export default function View() {

@@ -1,5 +1,5 @@
 import { IconButton, Dialog, DialogTitle, DialogActions, DialogContent, Button } from "@mui/material";
-import Close from "@mui/icons-material/Close";
+import { Close } from "../icons"
 
 export default function Delete({onConfirm, onCancel}) {
 	return (
