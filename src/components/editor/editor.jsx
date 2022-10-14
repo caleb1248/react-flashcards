@@ -10,7 +10,7 @@ import DeleteDialog from './delete';
 export default function Editor() {
 	const { theID } = useParams();
 
-	let navigate = useNavigate()
+	let navigate = useNavigate();
 	
 	const [ignoreState, rerender] = useState(false);
 	const [keys, setKeys] = useState(getDeck(theID).keys);
@@ -49,7 +49,7 @@ export default function Editor() {
 				onExport={() => {
 					saveDeck();
 					setDialog(
-						<ExportDialog value={`${location.hostname}/import/${btoa(localStorage.getItem(theID))}`} onClose={() => setDialog(<></>)}/>
+						<ExportDialog value={`https://${location.hostname + (location.hostname.includes("caleb1248.github.io")? "/react-flashcards": "")}/import/${btoa(localStorage.getItem(theID))}`} onClose={() => setDialog(<></>)}/>
 					)
 				}}
 				onDelete = {() => {
