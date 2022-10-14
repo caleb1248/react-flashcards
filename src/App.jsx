@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   return (
     <>
-    <Router><Routes>
+    <Router basename={location.hostname.includes("github.io")? "/react-flashcards/": "/"}><Routes>
       <Route path='/editor/:theID' element={<DeckContainer><Editor /></DeckContainer>}/>
 			<Route exact path='/' element={<Home/>} />
 			<Route path='/view/:theID' element={<DeckContainer><View /></DeckContainer>}/>
